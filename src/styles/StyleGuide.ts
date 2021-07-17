@@ -3,7 +3,7 @@ const StyleGuide = {
   palette: {
     primary: "#3884ff",
     backgroundPrimary: "#d5e5ff",
-    background: "#f2f2f2",
+    background: "#f00",
     border: "#f2f2f2",
   },
   typography: {
