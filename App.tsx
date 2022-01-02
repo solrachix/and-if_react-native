@@ -1,17 +1,15 @@
 import { createStackNavigator } from '@react-navigation/stack'
+import { ThemeProvider } from 'styled-components'
 
 import type { Routes } from './src/Routes'
+import Background from './src/components/Background'
+import { DarkTheme } from './src/styles/themes'
 import { LoadAssets } from './src/components/LoadAssets'
 import { Examples } from './src/Examples'
 import { ContextMenu } from './src/screens/ContextMenu'
+import { fonts } from './src/components/Text'
 
 // const assets = []
-const fonts = {
-  'SFProDisplay-Bold': require('./assets/fonts/SFPro/SF-Pro-Display-Bold.otf'),
-  'SFProDisplay-Semibold': require('./assets/fonts/SFPro/SF-Pro-Display-Semibold.otf'),
-  'SFProDisplay-Regular': require('./assets/fonts/SFPro/SF-Pro-Display-Regular.otf'),
-  'SFProDisplay-Medium': require('./assets/fonts/SFPro/SF-Pro-Display-Medium.otf')
-}
 
 const Stack = createStackNavigator<Routes>()
 const AppNavigator = () => (
@@ -36,9 +34,12 @@ const AppNavigator = () => (
 
 const App = () => {
   return (
-    <LoadAssets fonts={fonts}>
-      <AppNavigator />
-    </LoadAssets>
+    <ThemeProvider theme={DarkTheme}>
+      <Background />
+      <LoadAssets fonts={fonts}>
+        <AppNavigator />
+      </LoadAssets>
+    </ThemeProvider>
   )
 }
 
